@@ -1,8 +1,7 @@
 
 <html>
-    <head>
-      <title>Sphere Clicker</title>  
-      <script>
+    <head> <title>Sphere Clicker</title>
+        <script>
         document.addEventListener("DOMContentLoaded", function() {
 
 document.body.style.backgroundColor = 'black';
@@ -47,7 +46,7 @@ var score = document.createElement('div');
 score.innerHTML = 'Score: 0';
 score.style.position = 'absolute';
 score.style.left = '50px';
-score.style.top = '50px';
+score.style.top = '30px';
 score.style.zIndex = '2';
 document.body.appendChild(score);
 var scoreValue = 0;
@@ -73,7 +72,18 @@ sound.play();
   } else if (scoreValue === 1000) {
   rating.innerHTML = 'Rating: EVEN GREATER THAN GOD HIMSELF';
   } else if (scoreValue === 10000) {
-  rating.innerHTML = 'Rating: HOLY SHIT. IS THAT THE R  E  A  L EXPUNGED???';
+  rating.innerHTML = 'Rating: HOLY SHIT IS THAT THE R E A L EXPUNGED???';
+  } else if (scoreValue === 100000) {
+  rating.innerHTML = "HOW THE FUCK???";
+  } else if (scoreValue === 1000000) {
+  rating.innerHTML = "STOP, YOU'RE MAKING THE PAGE CRASH!!";
+  } else if (scoreValue === 10000000) {
+  document.title = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+  rating.innerHTML = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+  alert("ERROR: SCORE GOING ABOVE 10 MILLION, ABORTING... ABORTING...")
+  alert("ABORT COMPLETE.")
+  alert("BYE BYE.")
+  window.close();
   }
 setTimeout(function() {
 clickedCircle = false
@@ -99,7 +109,7 @@ var rating = document.createElement('div');
 rating.innerHTML = 'Rating: Absolute NOOB';
 rating.style.position = 'absolute';
 rating.style.left = '300px';
-rating.style.top = '50px';
+rating.style.top = '30px';
 rating.style.zIndex = '2';
 rating.style.color = 'white';
 rating.style.fontFamily = 'arial';
@@ -127,8 +137,8 @@ document.body.appendChild(rating);
 var text = document.createElement('div');
 text.innerHTML = 'Made by Genaro_01#0746, with Codex JavaScript Sandbox';
 text.style.position = 'absolute';
-text.style.left = '50px';
-text.style.top = '100px';
+text.style.left = '710px';
+text.style.top = '25px';
 text.style.zIndex = '2';
 text.style.color = 'white';
 text.style.fontFamily = 'arial';
@@ -172,6 +182,26 @@ document.body.appendChild(color);
 function reload() {
   location.reload();
 }
+
+var downLine = document.createElement('div');
+downLine.style.width = '100%';
+downLine.style.height = '10px';
+downLine.style.backgroundColor = 'white';
+downLine.style.position = 'absolute';
+downLine.style.left = '0px';
+downLine.style.top = '85px';
+downLine.style.zIndex = '2';
+document.body.appendChild(downLine);
+
+var line = document.createElement('div');
+line.style.width = '100%';
+line.style.height = '10px';
+line.style.backgroundColor = 'white';
+line.style.position = 'absolute';
+line.style.left = '0px';
+line.style.top = '0px';
+line.style.zIndex = '2';
+document.body.appendChild(line);
 });
         </script>
     </head>
