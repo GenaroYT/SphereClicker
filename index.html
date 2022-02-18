@@ -26,206 +26,225 @@
         </style>
         <script>
         document.addEventListener("DOMContentLoaded", function() {
-document.body.style.backgroundColor = 'black';
-/* make a white circle that bounces on the screen */
-var circle = document.createElement('div');
-var clickedCircle = false
-var speed = 10
+/* make the bg black */
+        document.body.style.backgroundColor = 'black';
+	/* make a white circle that bounces on the screen */
+	var circle = document.createElement('div');
+	var clickedCircle = false
+	var speed = 10
+        var goNuts = false
+	circle.style.width = '100px';
+	circle.style.height = '100px';
+	circle.style.borderRadius = '50px';
+	circle.style.backgroundColor = 'red';
+	circle.style.position = 'absolute';
+	circle.style.left = '50px';
+	circle.style.top = '50px';
+	circle.style.zIndex = '1';
+	document.body.appendChild(circle);
+	var x = 0;
+	var y = 0;
+	var dx = 1;
+	var dy = 1;
+	function move() {
+	  x += dx;
+	  y += dy;
+	  circle.style.left = x + 'px';
+	  circle.style.top = y + 'px';
+	  if (x >= document.body.clientWidth - 100) {
+	    dx = -1;
+	  }
+	  if (x <= 0) {
+	    dx = 1;
+	  }
+	  if (y >= document.body.clientHeight - 100) {
+	    dy = -1;
+	  }
+	  if (y <= 0) {
+	    dy = 1;
+	  }
+	}
+	setInterval(move, 10);
+	/* add a score text */
+	var score = document.createElement('div');
+	score.innerHTML = 'Score: 0';
+	score.style.position = 'absolute';
+	score.style.left = '50px';
+	score.style.top = '30px';
+	score.style.zIndex = '2';
+	document.body.appendChild(score);
+	var scoreValue = 0;
+	function addScore() {
+	  scoreValue += 1;
+	  score.innerHTML = 'Score: ' + scoreValue;
+	  clickedCircle = true
+	  var sound = document.createElement('audio');
+	sound.src = 'https://github.com/GenaroYT/SphereClicker/raw/main/click.wav';
+	sound.play();
+	  if (scoreValue === 1) {
+	  rating.innerHTML = 'Rating: Noob';
+	  } else if (scoreValue === 5) {
+	  rating.innerHTML = 'Rating: Not so noob';
+	  } else if (scoreValue === 10) {
+	  rating.innerHTML = 'Rating: Amateur';
+	  } else if (scoreValue === 20) {
+	  rating.innerHTML = 'Rating: Pro';
+	  } else if (scoreValue === 30) {
+	  rating.innerHTML = 'Rating: Hacker';
+	  } else if (scoreValue === 100) {
+	  rating.innerHTML = 'Rating: A FUCKING GOD';
+	  } else if (scoreValue === 1000) {
+	  rating.innerHTML = 'Rating: EVEN GREATER THAN GOD HIMSELF';
+	  } else if (scoreValue === 10000) {
+	  rating.innerHTML = 'Rating: HOLY SHIT IS THAT THE R E A L EXPUNGED???';
+	  } else if (scoreValue === 100000) {
+	  rating.innerHTML = "HOW THE FUCK???";
+	  } else if (scoreValue === 1000000) {
+	  rating.innerHTML = "STOP, YOU'RE MAKING THE PAGE CRASH!!";
+	   var element = document.body;
+	   element.classList.toggle("shake");
+           goNuts = true
+	   setInterval(nuts, 10);
+          } else if (scoreValue === 10000000) {
+	  document.title = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
+	  rating.innerHTML = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+	  alert("ERROR: SCORE GOING ABOVE 10 MILLION, ABORTING... ABORTING...")
+	  alert("ABORT COMPLETE.")
+	  alert("BYE BYE.")
+	  window.close();
+	  }
+	setTimeout(function() {
+	clickedCircle = false
+	}, 1000)
+	}
+	/* add one to the score every time you click on the circle */
+	circle.addEventListener('click', addScore);
+	/* make the background black */
+	document.body.style.backgroundColor = 'black';
+	/* make the circle white */
+	circle.style.backgroundColor = 'white';
+	/* make the score text white */
+	score.style.color = 'white';
+	/* set the font to arial */
+	score.style.fontFamily = 'arial';
+	/* make the score text bigger and bold */
+	score.style.fontSize = '20px';
+	score.style.fontWeight = 'bold';
+	/* make the score text bigger */
+	score.style.fontSize = '30px';
+	var rating = document.createElement('div');
+	rating.innerHTML = 'Rating: Absolute NOOB';
+	rating.style.position = 'absolute';
+	rating.style.left = '300px';
+	rating.style.top = '30px';
+	rating.style.zIndex = '2';
+	rating.style.color = 'white';
+	rating.style.fontFamily = 'arial';
+	rating.style.fontSize = '20px';
+	rating.style.fontWeight = 'bold';
+	rating.style.fontSize = '30px';
+	setInterval(function () {
+	speed = speed + 2
+	var speedText = document.createElement('div');
+	speedText.innerHTML = 'Speed: ' + speed;
+	speedText.style.position = 'absolute';
+	speedText.style.left = '800px';
+	speedText.style.top = '50px';
+	speedText.style.zIndex = '2';
+	speedText.style.color = 'white';
+	speedText.style.fontFamily = 'arial';
+	speedText.style.fontSize = '20px';
+	speedText.style.fontWeight = 'bold';
+	speedText.style.fontSize = '30px';
+	setInterval(move, speed);
+	}, 10000);
+	document.body.appendChild(rating);
+	var text = document.createElement('div');
+	text.innerHTML = 'Made by Genaro_01#0746, with Codex JavaScript Sandbox';
+	text.style.position = 'absolute';
+	text.style.left = '710px';
+	text.style.top = '25px';
+	text.style.zIndex = '2';
+	text.style.color = 'white';
+	text.style.fontFamily = 'arial';
+	text.style.fontSize = '20px';
+	text.style.fontWeight = 'bold';
+	text.style.fontSize = '20px';
+	document.body.appendChild(text);
+	var instructions = document.createElement('div');
+	instructions.innerHTML = 'The speed of the circle will increase every 10 seconds! If the circle turns red, press it as fast as possible!';
+	instructions.style.position = 'absolute';
+	instructions.style.left = '50px';
+	instructions.style.top = '150px';
+	instructions.style.zIndex = '2';
+	instructions.style.color = 'white';
+	instructions.style.fontFamily = 'arial';
+	instructions.style.fontSize = '20px';
+	instructions.style.fontWeight = 'bold';
+	instructions.style.fontSize = '20px';
+	document.body.appendChild(instructions);
+	var color = document.createElement('div');
+	color.style.position = 'absolute';
+	color.style.left = '50px';
+	color.style.top = '50px';
+	color.style.zIndex = '2';
+	color.style.color = 'white';
+	color.style.fontFamily = 'arial';
+	color.style.fontSize = '20px';
+	color.style.fontWeight = 'bold';
+	color.style.fontSize = '20px';
+	setInterval(function() {
+	  if (clickedCircle === false) {
+	  circle.style.backgroundColor = 'red';
+	  } else {
+	  circle.style.backgroundColor = 'white';
+	  }
+	}, 10);
+	document.body.appendChild(color);
+	function reload() {
+	  location.reload();
+	}
+	var downLine = document.createElement('div');
+	downLine.style.width = '100%';
+	downLine.style.height = '10px';
+	downLine.style.backgroundColor = 'white';
+	downLine.style.position = 'absolute';
+	downLine.style.left = '0px';
+	downLine.style.top = '85px';
+	downLine.style.zIndex = '2';
+	document.body.appendChild(downLine);
+	var line = document.createElement('div');
+	line.style.width = '100%';
+	line.style.height = '10px';
+	line.style.backgroundColor = 'white';
+	line.style.position = 'absolute';
+	line.style.left = '0px';
+	line.style.top = '0px';
+	line.style.zIndex = '2';
+	document.body.appendChild(line);
+if (goNuts === true) {
+setInterval(nuts, 10)
+} else {
+clearInterval(nuts)
+}
+function nuts() {
+circle.style.borderRadius = '0px';
 circle.style.width = '100px';
 circle.style.height = '100px';
-circle.style.borderRadius = '50px';
 circle.style.backgroundColor = 'red';
 circle.style.position = 'absolute';
 circle.style.left = '50px';
 circle.style.top = '50px';
 circle.style.zIndex = '1';
-document.body.appendChild(circle);
-var x = 0;
-var y = 0;
-var dx = 1;
-var dy = 1;
-function move() {
-  x += dx;
-  y += dy;
-  circle.style.left = x + 'px';
-  circle.style.top = y + 'px';
-  if (x >= document.body.clientWidth - 100) {
-    dx = -1;
-  }
-  if (x <= 0) {
-    dx = 1;
-  }
-  if (y >= document.body.clientHeight - 100) {
-    dy = -1;
-  }
-  if (y <= 0) {
-    dy = 1;
-  }
+circle.style.width = '100px';
+	circle.style.height = '100px';
+	circle.style.borderRadius = '50px';
+	circle.style.backgroundColor = 'red';
+	circle.style.position = 'absolute';
+	circle.style.left = '50px';
+	circle.style.top = '50px';
+	circle.style.zIndex = '1';
 }
-setInterval(move, 10);
-/* add a score text */
-var score = document.createElement('div');
-score.innerHTML = 'Score: 0';
-score.style.position = 'absolute';
-score.style.left = '50px';
-score.style.top = '30px';
-score.style.zIndex = '2';
-document.body.appendChild(score);
-var scoreValue = 0;
-function addScore() {
-  scoreValue += 1;
-  score.innerHTML = 'Score: ' + scoreValue;
-  clickedCircle = true
-  var sound = document.createElement('audio');
-sound.src = 'https://github.com/GenaroYT/SphereClicker/raw/main/click.wav';
-sound.play();
-  if (scoreValue === 1) {
-  rating.innerHTML = 'Rating: Noob';
-  } else if (scoreValue === 5) {
-  rating.innerHTML = 'Rating: Not so noob';
-  } else if (scoreValue === 10) {
-  rating.innerHTML = 'Rating: Amateur';
-  } else if (scoreValue === 20) {
-  rating.innerHTML = 'Rating: Pro';
-  } else if (scoreValue === 30) {
-  rating.innerHTML = 'Rating: Hacker';
-  } else if (scoreValue === 100) {
-  rating.innerHTML = 'Rating: A FUCKING GOD';
-  } else if (scoreValue === 1000) {
-  rating.innerHTML = 'Rating: EVEN GREATER THAN GOD HIMSELF';
-  } else if (scoreValue === 10000) {
-  rating.innerHTML = 'Rating: HOLY SHIT IS THAT THE R E A L EXPUNGED???';
-  } else if (scoreValue === 100000) {
-  rating.innerHTML = "HOW THE FUCK???";
-  } else if (scoreValue === 1000000) {
-  rating.innerHTML = "STOP, YOU'RE MAKING THE PAGE CRASH!!";
-   var element = document.body;
-   element.classList.toggle("shake");
-  } else if (scoreValue === 10000000) {
-  document.title = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA';
-  rating.innerHTML = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-  alert("ERROR: SCORE GOING ABOVE 10 MILLION, ABORTING... ABORTING...")
-  alert("ABORT COMPLETE.")
-  alert("BYE BYE.")
-  window.close();
-  }
-setTimeout(function() {
-clickedCircle = false
-}, 1000)
-}
-/* add one to the score every time you click on the circle */
-circle.addEventListener('click', addScore);
-/* make the background black */
-document.body.style.backgroundColor = 'black';
-/* make the circle white */
-circle.style.backgroundColor = 'white';
-/* make the score text white */
-score.style.color = 'white';
-/* set the font to arial */
-score.style.fontFamily = 'arial';
-/* make the score text bigger and bold */
-score.style.fontSize = '20px';
-score.style.fontWeight = 'bold';
-/* make the score text bigger */
-score.style.fontSize = '30px';
-
-var rating = document.createElement('div');
-rating.innerHTML = 'Rating: Absolute NOOB';
-rating.style.position = 'absolute';
-rating.style.left = '300px';
-rating.style.top = '30px';
-rating.style.zIndex = '2';
-rating.style.color = 'white';
-rating.style.fontFamily = 'arial';
-rating.style.fontSize = '20px';
-rating.style.fontWeight = 'bold';
-rating.style.fontSize = '30px';
-setInterval(function () {
-speed = speed + 2
-
-var speedText = document.createElement('div');
-speedText.innerHTML = 'Speed: ' + speed;
-speedText.style.position = 'absolute';
-speedText.style.left = '800px';
-speedText.style.top = '50px';
-speedText.style.zIndex = '2';
-speedText.style.color = 'white';
-speedText.style.fontFamily = 'arial';
-speedText.style.fontSize = '20px';
-speedText.style.fontWeight = 'bold';
-speedText.style.fontSize = '30px';
-setInterval(move, speed);
-}, 10000);
-document.body.appendChild(rating);
-
-var text = document.createElement('div');
-text.innerHTML = 'Made by Genaro_01#0746, with Codex JavaScript Sandbox';
-text.style.position = 'absolute';
-text.style.left = '710px';
-text.style.top = '25px';
-text.style.zIndex = '2';
-text.style.color = 'white';
-text.style.fontFamily = 'arial';
-text.style.fontSize = '20px';
-text.style.fontWeight = 'bold';
-text.style.fontSize = '20px';
-document.body.appendChild(text);
-
-var instructions = document.createElement('div');
-instructions.innerHTML = 'The speed of the circle will increase every 10 seconds! If the circle turns red, press it as fast as possible!';
-instructions.style.position = 'absolute';
-instructions.style.left = '50px';
-instructions.style.top = '150px';
-instructions.style.zIndex = '2';
-instructions.style.color = 'white';
-instructions.style.fontFamily = 'arial';
-instructions.style.fontSize = '20px';
-instructions.style.fontWeight = 'bold';
-instructions.style.fontSize = '20px';
-document.body.appendChild(instructions);
-
-var color = document.createElement('div');
-color.style.position = 'absolute';
-color.style.left = '50px';
-color.style.top = '50px';
-color.style.zIndex = '2';
-color.style.color = 'white';
-color.style.fontFamily = 'arial';
-color.style.fontSize = '20px';
-color.style.fontWeight = 'bold';
-color.style.fontSize = '20px';
-setInterval(function() {
-  if (clickedCircle === false) {
-  circle.style.backgroundColor = 'red';
-  } else {
-  circle.style.backgroundColor = 'white';
-  }
-}, 10);
-document.body.appendChild(color);
-
-function reload() {
-  location.reload();
-}
-
-var downLine = document.createElement('div');
-downLine.style.width = '100%';
-downLine.style.height = '10px';
-downLine.style.backgroundColor = 'white';
-downLine.style.position = 'absolute';
-downLine.style.left = '0px';
-downLine.style.top = '85px';
-downLine.style.zIndex = '2';
-document.body.appendChild(downLine);
-
-var line = document.createElement('div');
-line.style.width = '100%';
-line.style.height = '10px';
-line.style.backgroundColor = 'white';
-line.style.position = 'absolute';
-line.style.left = '0px';
-line.style.top = '0px';
-line.style.zIndex = '2';
-document.body.appendChild(line);
 });
         </script>
     </head>
