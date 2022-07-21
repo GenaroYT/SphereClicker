@@ -28,6 +28,7 @@
         document.addEventListener("DOMContentLoaded", function() {
 /* make the bg black */
         document.body.style.backgroundColor = 'black';
+	document.body.style.webkitUserSelect = 'none';
 	/* make a white circle that bounces on the screen */
 	var circle = document.createElement('div');
 	var clickedCircle = false
@@ -160,7 +161,7 @@
 	}, 10000);
 	document.body.appendChild(rating);
 	var text = document.createElement('div');
-	text.innerHTML = 'Made by Genaro_01#0746, with Codex JavaScript Sandbox';
+	text.innerHTML = 'Made by G1nX#0746, with Codex JavaScript Sandbox';
 	text.style.position = 'absolute';
 	text.style.left = '710px';
 	text.style.top = '25px';
